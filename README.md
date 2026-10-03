@@ -1,28 +1,20 @@
 # Electricity Bill Calculator
 
-A responsive Java web application built with `Servlet` + `JSP` and Bootstrap, using slab-based electricity tariff rules.
+A responsive electricity bill estimator built with Java 17, Jakarta Servlet, and JSP. Usage is charged progressively by slab:
 
-## Tariff Rules
-- First 50 units: ₹3.50 per unit
-- Next 100 units: ₹4.00 per unit
-- Next 100 units: ₹5.20 per unit
-- Above 250 units: ₹6.50 per unit
+| Usage slab | Rate |
+| --- | ---: |
+| First 50 units | Rs. 3.50 per unit |
+| Next 100 units (51–150) | Rs. 4.00 per unit |
+| Next 100 units (151–250) | Rs. 5.20 per unit |
+| Above 250 units | Rs. 6.50 per unit |
 
-## Project Structure
-- `src/main/java/com/example/ElectricityBillServlet.java` – servlet for bill calculation
-- `src/main/webapp/index.jsp` – responsive UI with Bootstrap and jQuery
-- `src/main/webapp/WEB-INF/web.xml` – deployment descriptor
-- `pom.xml` – Maven build configuration
+The estimate covers energy charges only; taxes and other utility fees are not included.
 
-## Run
-1. Install Maven on your system.
-2. Open a terminal in the project folder.
-3. Run:
-   ```bash
-   mvn clean package
-   ```
-4. Deploy the generated WAR file from `target/` into Tomcat.
-5. Open:
-   ```text
-   http://localhost:8080/electricity-bill-calculator/
-   ```
+## Build and run
+
+1. Run `mvn test package`.
+2. Deploy `target/electricity-bill.war` to a Jakarta EE 10-compatible servlet container such as Apache Tomcat 10.1.
+3. Open `http://localhost:8080/electricity-bill/bill`.
+
+The application accepts whole, non-negative unit counts and displays the charge breakdown by slab.
