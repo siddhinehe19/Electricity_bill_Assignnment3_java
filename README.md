@@ -1,20 +1,38 @@
 # Electricity Bill Calculator
 
-A responsive electricity bill estimator built with Java 17, Jakarta Servlet, and JSP. Usage is charged progressively by slab:
+A small Java web app for estimating an electricity bill from the number of units used. Enter your usage to see the total and how it is split across the rate slabs.
 
-| Usage slab | Rate |
+## Rate slabs
+
+| Units | Rate |
 | --- | ---: |
-| First 50 units | Rs. 3.50 per unit |
-| Next 100 units (51–150) | Rs. 4.00 per unit |
-| Next 100 units (151–250) | Rs. 5.20 per unit |
-| Above 250 units | Rs. 6.50 per unit |
+| 1–50 | ₹3.50 per unit |
+| 51–150 | ₹4.00 per unit |
+| 151–250 | ₹5.20 per unit |
+| Above 250 | ₹6.50 per unit |
 
-The estimate covers energy charges only; taxes and other utility fees are not included.
+The rates are progressive: each price applies only to the units in that range. The estimate covers energy charges only, not taxes or other utility fees.
 
-## Build and run
+## Screenshots
 
-1. Run `mvn test package`.
-2. Deploy `target/electricity-bill.war` to a Jakarta EE 10-compatible servlet container such as Apache Tomcat 10.1.
-3. Open `http://localhost:8080/electricity-bill/bill`.
+![Calculator page](screenshots/overview.png)
 
-The application accepts whole, non-negative unit counts and displays the charge breakdown by slab.
+![Rate slabs](screenshots/Payment%20slab.png)
+
+![Bill calculation](screenshots/Calculate%20bill.png)
+
+## Run locally
+
+You’ll need Java 17, Maven, and a Jakarta-compatible servlet container such as Tomcat 10.1.
+
+Build and run the tests:
+
+```sh
+mvn test package
+```
+
+Deploy `target/electricity-bill.war` to Tomcat, then open:
+
+```text
+http://localhost:8080/electricity-bill/bill
+```
