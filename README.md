@@ -15,11 +15,17 @@ The rates are progressive: each price applies only to the units in that range. T
 
 ## Screenshots
 
-![Calculator page](screenshots/overview.png)
 
-![Rate slabs](screenshots/Payment%20slab.png)
+## Screenshots
 
-![Bill calculation](screenshots/Calculate%20bill.png)
+### Calculator Page
+![Calculator Page](Screenshots/calculator.png)
+
+### Rate Slabs
+![Rate Slabs](Screenshots/rate-slabs.png)
+
+### Bill Calculation
+![Bill Calculation](Screenshots/bill-calculation.png)
 
 ## Run locally
 
